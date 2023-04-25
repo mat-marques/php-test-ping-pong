@@ -10,9 +10,7 @@ RUN apt-get update && apt-get install -y \
     libzip-dev
 
 RUN docker-php-ext-install zip
-RUN docker-php-ext-install unzip
-RUN docker-php-ext-install git
 
 COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
 
-CMD ["composer", "install", "composer", "dump-autoload"]
+CMD ["composer", "install"]
